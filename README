@@ -1,0 +1,311 @@
+# Cisco Network & Wireless Security Lab
+
+## Overview
+
+This project is a hands-on Cisco networking and wireless security lab built using Cisco Packet Tracer.
+
+The objective was to build and configure a small network while developing practical skills in network configuration, IP addressing, DHCP, wireless security, connectivity testing, and troubleshooting.
+
+This project demonstrates foundational networking knowledge relevant to junior cybersecurity and SOC roles, where understanding network architecture and normal network behaviour is important when investigating security events.
+
+---
+
+## Objectives
+
+The lab focused on:
+
+* Router configuration
+* Switching
+* IPv4 addressing
+* DHCP configuration
+* Wireless network configuration
+* WPA2-PSK authentication
+* AES encryption
+* Network connectivity testing
+* Network troubleshooting
+* Basic Cisco IOS configuration
+
+---
+
+## Lab Environment
+
+| Component         | Technology                   |
+| ----------------- | ---------------------------- |
+| Network Simulator | Cisco Packet Tracer          |
+| Router            | Cisco Router                 |
+| Switch            | Cisco Switch                 |
+| Wireless          | Wireless Access Point/Router |
+| Clients           | Windows PC and Laptop        |
+| Addressing        | IPv4                         |
+| DHCP              | Cisco IOS DHCP               |
+| Wireless Security | WPA2-PSK                     |
+| Encryption        | AES                          |
+
+---
+
+## Network Topology
+
+The lab consists of a router connected to a switch, with wired and wireless clients connected to the network.
+
+![Network Topology](screenshots/01-network-topology.png)
+
+---
+
+## IP Addressing
+
+The lab uses the private IPv4 network:
+
+`192.168.10.0/24`
+
+The router acts as the default gateway for the network.
+
+| Device      | Addressing   |
+| ----------- | ------------ |
+| Router      | 192.168.10.1 |
+| Wireless AP | 192.168.10.2 |
+| PC          | DHCP         |
+| Laptop      | DHCP         |
+
+Subnet mask:
+
+`255.255.255.0`
+
+---
+
+## Router Configuration
+
+The router was configured with a hostname and IPv4 address.
+
+Example configuration:
+
+```text
+enable
+configure terminal
+hostname R1
+
+interface gigabitEthernet 0/0
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+exit
+
+end
+write memory
+```
+
+### Evidence
+
+![Router Configuration](screenshots/02-router-configuration.png)
+
+---
+
+## Switching Configuration
+
+The switch was configured to provide connectivity between the router and network devices.
+
+Basic access ports were configured and enabled for connected devices.
+
+### Evidence
+
+![Switch Configuration](screenshots/03-switch-configuration.png)
+
+---
+
+## DHCP Configuration
+
+DHCP was configured on the router so that client devices could automatically receive their network configuration.
+
+The DHCP configuration included:
+
+* Network address
+* Subnet mask
+* Default gateway
+* DNS server
+* Excluded addresses
+
+Example:
+
+```text
+ip dhcp pool LAN
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+dns-server 8.8.8.8
+exit
+```
+
+DHCP bindings were verified using:
+
+```text
+show ip dhcp binding
+```
+
+### Evidence
+
+![DHCP Configuration](screenshots/05-dhcp-configuration.png)
+
+---
+
+## Wireless Configuration
+
+A wireless network was configured for the laptop client.
+
+**SSID:**
+
+`CYBERLAB-WIFI`
+
+Wireless authentication was configured using WPA2-PSK.
+
+### Evidence
+
+![Wireless Configuration](screenshots/06-wireless-configuration.png)
+
+---
+
+## WPA2-PSK and AES
+
+WPA2-PSK was configured to authenticate wireless clients before allowing them to connect to the network.
+
+AES encryption was selected for wireless security.
+
+This demonstrates an understanding of basic wireless security controls and the importance of protecting wireless network access.
+
+### Evidence
+
+![WPA2 and AES Configuration](screenshots/07-wpa2-aes-security.png)
+
+---
+
+## Connectivity Testing
+
+Network connectivity was tested using ICMP ping.
+
+Tests included:
+
+* Client → Default Gateway
+* Wireless Client → Default Gateway
+* Client-to-client connectivity where applicable
+
+Example:
+
+```text
+ping 192.168.10.1
+```
+
+Successful replies confirmed connectivity between the client and the router.
+
+### Evidence
+
+![Connectivity Testing](screenshots/08-connectivity-test.png)
+
+---
+
+## Troubleshooting
+
+A connectivity issue was intentionally introduced to test the troubleshooting process.
+
+The troubleshooting process involved:
+
+1. Checking the client's IP configuration.
+2. Verifying the default gateway.
+3. Checking router interface status.
+4. Reviewing DHCP configuration and bindings.
+5. Identifying the configuration error.
+6. Correcting the configuration.
+7. Re-testing connectivity.
+
+Useful Cisco IOS commands included:
+
+```text
+show ip interface brief
+show running-config
+show ip dhcp binding
+```
+
+Client-side testing included:
+
+```text
+ipconfig
+ping
+```
+
+### Evidence
+
+![Troubleshooting](screenshots/09-troubleshooting.png)
+
+---
+
+## Skills Demonstrated
+
+### Networking
+
+* IPv4 addressing
+* Subnetting fundamentals
+* Router configuration
+* Switch configuration
+* DHCP
+* Default gateways
+* Wireless networking
+* Connectivity testing
+
+### Security
+
+* WPA2-PSK
+* AES encryption
+* Wireless access control
+* Secure network configuration
+* Basic security-focused troubleshooting
+
+### Troubleshooting
+
+* IP configuration verification
+* Gateway troubleshooting
+* Interface verification
+* DHCP troubleshooting
+* ICMP connectivity testing
+* Configuration validation
+
+---
+
+## Security Relevance
+
+Understanding how a network is designed and how normal network traffic flows is an important foundation for cybersecurity.
+
+This lab helped develop practical knowledge that can be applied when investigating:
+
+* Unexpected network connections
+* Connectivity problems
+* Wireless access issues
+* DHCP activity
+* Network configuration changes
+* Suspicious network behaviour
+
+A strong understanding of normal network operation provides useful context when analysing abnormal or potentially malicious activity.
+
+---
+
+## Project Files
+
+The repository includes the Cisco Packet Tracer project file:
+
+`packet-tracer/cisco-network-wireless-security-lab.pkt`
+
+The screenshots directory contains evidence of the configuration, testing, and troubleshooting performed during the lab.
+
+---
+
+## Key Takeaways
+
+This project strengthened my understanding of how routers, switches, DHCP, IP addressing, and wireless networks work together.
+
+It also provided practical experience configuring basic wireless security and troubleshooting network connectivity issues using Cisco Packet Tracer.
+
+---
+
+## Tools Used
+
+* Cisco Packet Tracer
+* Cisco IOS CLI
+* ICMP
+* IPv4
+* DHCP
+* WPA2-PSK
+* AES
