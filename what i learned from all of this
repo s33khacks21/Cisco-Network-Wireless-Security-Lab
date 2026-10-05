@@ -1,0 +1,17 @@
+## What I Learned
+
+This lab gave me practical experience building and troubleshooting a small wired and wireless network using Cisco Packet Tracer.
+
+Key skills developed:
+
+* Cisco router and switch configuration
+* IPv4 addressing and subnetting fundamentals
+* DHCP configuration and IP assignment
+* Wireless network configuration
+* WPA2-PSK authentication
+* AES wireless encryption
+* ICMP connectivity testing
+* Network troubleshooting
+* Understanding how devices communicate across a LAN
+
+From a cybersecurity perspective, the lab helped me understand what normal network configuration and communication looks like. This provides an important foundation for analysing network activity, identifying abnormal behaviour and investigating security incidents.
